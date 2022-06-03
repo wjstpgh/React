@@ -1,4 +1,4 @@
-namespace dotnetreact;
+namespace React_dotnet;
 
 public class WeatherForecast
 {
