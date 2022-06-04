@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>reacttest</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        //함수형 컴포넌트의 첫글자는 대문자로 사용
+        function Booktitle(){
+            return (
+                <div className='row'>
+                    <h1>Book</h1>
+                </div>
+            );
+        }
+        const BookFooter=() => <p>bookFooter</p>
+        const Copyright=() => {
+            return (<p>Copyright &copy;</p>);
+        }
+        //구조파괴할당
+        function BookCard({title,description,price}){
+            return(
+                <div className='container mb-2'>
+                    <div className='row'>
+                        <div className='col-12'>
+                            {title}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-2'>
+                            {title}  
+                        </div>
+                        <div className='col-10'>
+                            {description}
+                            <hr/>
+                            {price+'원'}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        class Booklist extends React.Component{
+            state={
+                theme:'white'
+            }
+            blueTheme = () => {
+                this.setState({theme:'blue'});
+            }
+            whiteTheme = () => this.setState({theme:'white'});
+
+            render(){
+                return(
+                    <>
+                        <div>{this.state.theme==='white' ? 'white theme':'blue theme' }</div>
+                        <div>   
+                            <button onClick={ () => {this.setState({theme:'blue'});} }>Blue1</button>
+                            <button onClick={ () => {this.setState({theme:'white'});} }>White1</button>
+                            <button onClick={ this.blueTheme }>Blue 2</button>
+                            <button onClick={ this.whiteTheme }>White 2</button>
+                        </div>
+                        {
+                            this.props.books.map(book => {
+                                return <BookCard key={book.id} title={book.title} description={book.description} price={book.price} />
+                            })
+                        }
+                    </>
+                );
+            }
+        }
+        const books=[
+                {id:1,title:'C#',description:'C#교과서',price:'30000'},
+                {id:2,title:'.NET',description:'ASP.NET Core를 다루는 기술',price:'50000'},
+                {id:3,title:'React',description:'React사용법',price:'45000'}
+            ];
+        function App(){
+            return(
+                <>
+                    <Booktitle/>
+                    <Booklist books={books} />
+                    <BookFooter/>
+                    <Copyright/>
+                </>
+            );
+        }
+        //JSX를 사용해 html을 jS로 변환
+        ReactDOM.render(
+            //형제노드는 따로 들어가지 못함
+            <App/>,
+            document.getElementById('root')
+        );
+    </script>
+    
+</body>
+</html>
