@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>reacttest</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        //표현식
+        let title='분해할당 Destructuring Assignment';
+        
+        let seeSharp={
+            title:'C#',
+            description:'C#의 내용',
+        };
+        //함수형 컴포넌트의 첫글자는 대문자로 사용
+        function Booktitle(){
+            return (
+                <div className='row'>
+                    <h1>Book</h1>
+                </div>
+            );
+        }
+        const BookFooter=() => <p>bookFooter</p>
+        const Copyright=() => {
+            return (<p>Copyright &copy;</p>);
+        }
+        function BookCardOther(props){
+            //console.log(props);
+            //console.log(Object.keys(props));
+            return(
+                <div className='container mb-2'>
+                    <div className='row'>
+                        <div className='col-12'>
+                            {props.title}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-2'>
+                            {props.title}  
+                        </div>
+                        <div className='col-10'>
+                            {props.description}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        //구조파괴할당
+        function BookCard({title, description,price}){
+            return(
+                <div className='container mb-2'>
+                    <div className='row'>
+                        <div className='col-12'>
+                            {title}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-2'>
+                            {title}  
+                        </div>
+                        <div className='col-10'>
+                            {description}
+                            <hr/>
+                            {price+'원'}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        function BooklistOther(props){
+            if(props.sortOrder==='ASC'){
+                return(
+                    <>
+                        <BookCard title='.NET' description='ASP.NET &amp; Core' price={30000} />
+                        <BookCard title={seeSharp.title} description={seeSharp.description} price={30000} />
+                    </>
+                )
+            }
+            else{
+                return(
+                    <>
+                        <BookCard title={seeSharp.title} description={seeSharp.description} price={30000} />
+                        <BookCard title='.NET' description='ASP.NET &amp; Core' price={30000} />
+                    </>
+                )
+            }
+        }
+        function Booklist(props){
+            return(
+                <>
+                    {
+                        (props.sortOrder==='ASC')
+                    ?
+                        <>
+                        <BookCard title='.NET' description='ASP.NET &amp; Core' price={30000} />
+                        <BookCard title={seeSharp.title} description={seeSharp.description} price={30000} />
+                        </>
+                    :
+                        <>
+                        <BookCard title={seeSharp.title} description={seeSharp.description} price={30000} />
+                        <BookCard title='.NET' description='ASP.NET &amp; Core' price={30000} />
+                        </>
+                    }   
+                </>
+            );
+        }
+        //함수형 컴포넌트
+        function AppOther(){
+            return(
+                <>
+                    <Booktitle/>
+                    <Booklist sortOrder='ASC' />
+                    <BookFooter/>
+                    <Copyright/>
+                </>
+            );
+        }
+        //클래스형 컴포넌트
+        class App extends React.Component{
+            render(){
+                return(
+                    <>
+                        <Booktitle/>
+                        <Booklist sortOrder='ASC' />
+                        <BookFooter/>
+                        <Copyright/>
+                    </>
+                );
+            }
+        }
+        //최종 랜더링
+        ReactDOM.render(
+            //형제노드는 따로 들어가지 못함
+            <App/>,
+            document.getElementById('root')
+        );
+    </script>
+    
+</body>
+</html>

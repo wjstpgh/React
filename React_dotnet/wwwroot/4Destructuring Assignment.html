@@ -33,40 +33,66 @@
         const Copyright=() => {
             return (<p>Copyright &copy;</p>);
         }
-        function BookCard(props){
-            //console.log(props);
-            //console.log(Object.keys(props));
+        //구조파괴할당
+        function BookCard({title, description,price}){
             return(
                 <div className='container mb-2'>
                     <div className='row'>
                         <div className='col-12'>
-                            {props.title}
+                            {title}
                         </div>
                     </div>
                     <div className='row'>
                         <div className='col-2'>
-                            {props.title}  
+                            {title}  
                         </div>
                         <div className='col-10'>
-                            {props.description}
+                            {description}
+                            <hr/>
+                            {price+'원'}
                         </div>
                     </div>
                 </div>
             );
         }
-        function Booklist(){
-            return(
-                <>
-                <BookCard title={seeSharp.title} description={seeSharp.description} />
-                <BookCard title='.NET' description='ASP.NET &amp; Core' />
-                </>
-            );
+        class Booklist extends React.Component{
+            state={
+                theme:'white'
+            }
+            blueTheme = () => {
+                this.setState({theme:'blue'});
+            }
+            whiteTheme = () => this.setState({theme:'white'});
+
+            render(){
+                return(
+                    <>
+                        <div>{this.state.theme==='white' ? 'white theme':'blue theme' }</div>
+                        <div>   
+                            <button onClick={ () => {this.setState({theme:'blue'});} }>Blue1</button>
+                            <button onClick={ () => {this.setState({theme:'white'});} }>White1</button>
+                            <button onClick={ this.blueTheme }>Blue 2</button>
+                            <button onClick={ this.whiteTheme }>White 2</button>
+                        </div>
+                        {
+                            this.props.books.map(book => {
+                                return <BookCard key={book.id} title={book.title} description={book.description} price={book.price} />
+                            })
+                        }
+                    </>
+                );
+            }
         }
+        const books=[
+                {id:1,title:'C#',description:'C#교과서',price:'30000'},
+                {id:2,title:'.NET',description:'ASP.NET Core를 다루는 기술',price:'50000'},
+                {id:3,title:'React',description:'React사용법',price:'45000'}
+            ];
         function App(){
             return(
                 <>
                     <Booktitle/>
-                    <Booklist/>
+                    <Booklist sortOrder='ASC' books={books} />
                     <BookFooter/>
                     <Copyright/>
                 </>
