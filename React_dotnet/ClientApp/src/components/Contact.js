@@ -1,4 +1,5 @@
 import React,{ Component } from "react";
+import { ComponentDetail } from "./componentDetail/ComponentDetail";
 
 export class Contact extends Component{
     render(){
@@ -8,6 +9,7 @@ export class Contact extends Component{
                 <p>
                     연락처 페이지입니다.
                 </p>
+                <ComponentDetail></ComponentDetail>
             </div>
         );
     }
