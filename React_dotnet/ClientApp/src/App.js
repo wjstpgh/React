@@ -9,6 +9,9 @@ import Fragment from './components/componentDetail/Fragment';
 
 import './custom.css'
 import {State} from './components/componentDetail/State';
+import OnclickEventHandler from './components/componentDetail/OnclickEventHandler';
+import { OnewayBinding } from './components/componentDetail/OnewayBinding';
+import TodoListInMemory from './components/TodoList';
 
 
 export default class App extends Component {
@@ -21,6 +24,9 @@ export default class App extends Component {
         <Route path='/contact' component={Contact} />
         <Route path='/hidden' component={Fragment} />
         <Route path='/state' component={State} />
+        <Route path='/onclick' component={OnclickEventHandler} />
+        <Route path='/oneway' component={OnewayBinding} />
+        <Route path='/todo' component={TodoListInMemory} />
       </Layout>
     );
   }
