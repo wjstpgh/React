@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 
-function UseEffectHook(){
+function Hook(){
   const [agree,setAgree]=useState(false);
 
   useEffect(()=>{
@@ -13,7 +13,7 @@ function UseEffectHook(){
 
   return(
     <>
-    <h1>hi</h1>
+    <h1>UseEffectHook</h1>
     <input type='checkbox' value={agree}
           onChange={() => setAgree(agree => !agree)}/>
     {agree ? '동의함':'동의하지않음'}
@@ -21,4 +21,4 @@ function UseEffectHook(){
   );
 }
 
-export default UseEffectHook;
+export default Hook;
