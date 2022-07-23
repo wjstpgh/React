@@ -2,9 +2,5 @@ C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.
 C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\bin\Debug\BookApp.SqlServer.dll
 C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\bin\Debug\BookApp.SqlServer.pdb
 C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\obj\Debug\BookApp.SqlServer.sqlproj.AssemblyReference.cache
-C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\obj\Debug\Model.xml
-C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\obj\Debug\refactor.xml
-C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\obj\Debug\postdeploy.sql
-C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\obj\Debug\predeploy.sql
 C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\obj\Debug\BookApp.SqlServer.dll
 C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\obj\Debug\BookApp.SqlServer.pdb
