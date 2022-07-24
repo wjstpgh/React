@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
+using Dul.Articles;
 
 namespace BookApp.Shared
 {
@@ -11,10 +12,11 @@ namespace BookApp.Shared
         Task<bool> UpdateAsync(T model);//수정
         Task<bool> DeleteAsync(TIdentifier id);//삭제
     }
+
     /// <summary>
-    /// [3] Generic Repo interface => ICrudRepoBase.cs
+    /// [3] Generic Repository interface => ICrudRepoBase.cs
     /// </summary>
-    public interface IBookCrudRepository<T> : ICrudRepositoryBase<T,int>
+    public interface IBookCrudRepository<T> : ICrudRepositoryBase<T, int>
     {
         //Empty
     }
