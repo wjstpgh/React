@@ -1,6 +1,0 @@
-C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\bin\Debug\BookApp.SqlServer.dacpac
-C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\bin\Debug\BookApp.SqlServer.dll
-C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\bin\Debug\BookApp.SqlServer.pdb
-C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\obj\Debug\BookApp.SqlServer.sqlproj.AssemblyReference.cache
-C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\obj\Debug\BookApp.SqlServer.dll
-C:\Users\tmark\OneDrive\바탕 화면\React\BookApp.React\BookApp.React\BookApp.SqlServer\obj\Debug\BookApp.SqlServer.pdb
