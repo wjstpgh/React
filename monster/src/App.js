@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -7,25 +6,33 @@ class App extends Component {
     super();
 
     this.state={
-      name:'old name',
-
+      monster:[]
     };
+  }
+
+  componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response)=>response.json())
+    .then((users)=>this.setState(()=>{
+      return {monster:users}
+    },
+    ()=>{
+      console.log(this.state);
+    }
+    ));
   }
 
   render(){
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Hi {this.state.name}</p>
-          <button onClick={()=>{
-            this.setState({name:'new name'})
-          }}>change name</button>
-        </header>
+          {
+            this.state.monster.map((mon)=>{
+              return <div key={mon.id}><h1>{mon.name}</h1></div>
+            })
+          }
       </div>
     );
   }
-  
 }
 
 export default App;
