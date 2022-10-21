@@ -1,5 +1,4 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { shallow } from 'enzyme';
 import MainPage from './MainPage';
 
@@ -12,13 +11,14 @@ beforeEach(() => {
     searchField: '',
     isPending: false
   }
-  wrapper = shallow(<MainPage {...mockProps}/>)
- })
+  wrapper = shallow(<MainPage {...mockProps} />)
+})
 
 it('renders without crashing', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
+//배열 필터링 테스트, 배열의 타입으로 필터링 되는지를 테스트 한다.
 it('fileters Robots', () => {
   const mockProps = {
     onRequestRobots: jest.fn(),
@@ -26,7 +26,7 @@ it('fileters Robots', () => {
     searchField: 'a',
     isPending: false
   }
-  wrapper = shallow(<MainPage {...mockProps}/>)
+  wrapper = shallow(<MainPage {...mockProps} />)
   expect(wrapper.instance().filterRobots()).toEqual([]);
 });
 
@@ -48,7 +48,7 @@ it('fileters Robots correctly', () => {
     searchField: 'Leanne',
     isPending: false
   }
-  wrapper = shallow(<MainPage {...mockProps}/>)
+  wrapper = shallow(<MainPage {...mockProps} />)
   expect(wrapper.instance().filterRobots()).toEqual(filteredRobots);
 });
 
@@ -70,7 +70,7 @@ it('fileters Robots correctly 2', () => {
     searchField: 'Xavier',
     isPending: false
   }
-  wrapper = shallow(<MainPage {...mockProps}/>)
+  wrapper = shallow(<MainPage {...mockProps} />)
   expect(wrapper.instance().filterRobots()).toEqual([]);
 });
 
